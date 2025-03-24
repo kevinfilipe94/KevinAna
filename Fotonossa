@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Especial</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .photo {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .hearts {
+            font-size: 30px;
+            margin: 10px 0;
+        }
+        #timer {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hearts">❤️❤️❤️</div>
+        <img src="foto.jpg" alt="Foto Especial" class="photo">
+        <p id="legend">Essa é uma lembrança especial!</p>
+        <div id="timer"></div>
+    </div>
+
+    <script>
+        function updateTimer() {
+            const eventDate = new Date("2024-01-01T00:00:00"); // Ajuste para a data do evento
+            const now = new Date();
+            const diff = now - eventDate;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            document.getElementById("timer").innerText = `Já se passaram ${hours} horas desde o evento.`;
+        }
+        
+        updateTimer();
+        setInterval(updateTimer, 60000);
+    </script>
+</body>
+</html>
